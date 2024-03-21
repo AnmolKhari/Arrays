@@ -1,0 +1,16 @@
+public class Start2_3 {
+    public static void main(String[] args) {
+        int []k={90, 2, 3, 4, 56, 6, 2, 12, 45, 6};
+        int max=k[0], s_max= Integer.MIN_VALUE;
+        for(int l=1; lk.length; l++){
+            if(maxk[l]){
+                s_max=max;
+                max=k[l];
+            }
+            else if(s_maxk[l]){
+                s_max=k[l];
+            }
+        }
+        System.out.print(s_max);
+    }
+}
