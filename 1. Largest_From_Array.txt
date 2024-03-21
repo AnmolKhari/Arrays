@@ -1,0 +1,12 @@
+public class Start1 {
+    public static void main(String[] args) {
+        int []k={13, 1, 23, 7, 12};
+        int m=k[0];
+        for(int l=1; l<k.length; l++){
+            if(m<k[l]){
+                m=k[l];
+            }
+        }
+        System.out.print(m);
+    }
+}
