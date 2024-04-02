@@ -1,0 +1,22 @@
+import java.util.*;
+public class Start4_2 {
+    public static void main(String[] args) {
+        int []k={1, 2, 3, 4, 5, 6, 7};
+        Scanner obj=new Scanner(System.in);
+        System.out.print("Enter rotation:- ");
+        int l=obj.nextInt();
+        l=l%k.length;
+        revv(0, l, k);
+        revv(l, k.length, k);
+        revv(0, k.length, k);
+        System.out.print(Arrays.toString(k));
+    }
+    public static void revv(int o, int st, int k[]){
+        for(int m=o, n=st-1; m<n; m++){
+            k[m]=k[m]+k[n];
+            k[n]=k[m]-k[n];
+            k[m]=k[m]-k[n];
+            n--;
+        }
+    }
+}
