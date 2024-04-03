@@ -1,0 +1,16 @@
+import java.util.*;
+public class Start5_2 {
+    public static void main(String[] args) {
+        int []k={1, 2, 0, 0, 4, 0, 5, 0, 0};
+        int l=0, m=0;
+        for(int n=0; n<k.length; n++){
+            if(k[n]!=0){
+                m=k[n];
+                k[n]=k[l];
+                k[l]=m;
+                l++;
+            }
+        }
+        System.out.print(Arrays.toString(k));
+    }
+}
