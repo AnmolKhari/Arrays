@@ -1,0 +1,29 @@
+import java.util.*;
+public class Start8_1 {
+    public static void main(String[] args){
+        Scanner obj=new Scanner(System.in);
+        System.out.print("Enter no. of Digits to arrange:- ");
+        long k=obj.nextLong();
+        Start8_1 c_obj=new Start8_1();
+        System.out.println(c_obj.countGoodNumbers(k));
+    }
+    public int countGoodNumbers(long k) {
+        long m=(k+1)/2;
+        long n=pow(5, m);
+        long o=pow(4, (k-m));
+        long res=(n*o)%1000000007;
+        return (int)res;
+
+    }
+    public static long pow(long ma, long ex){
+        long retur=1;
+        while(ex>0){
+            if(ex%2==1){
+                retur=(retur*ma)%1000000007;
+            }
+            ma=(ma*ma)%1000000007;
+            ex/=2;
+        }
+        return retur;
+    }
+}
