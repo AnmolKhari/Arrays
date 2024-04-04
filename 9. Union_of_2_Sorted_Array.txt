@@ -1,0 +1,36 @@
+import java.util.ArrayList;
+public class Start9_1 {
+    public static void main(String[] args) {
+        int []k={1, 1, 2, 3, 4, 5};
+        int []l={3, 4, 4, 5, 6};
+        ArrayList<Integer> un=new ArrayList<>();
+        int m=0, n=0;
+        while(m<k.length && n<l.length){
+            if(k[m]<=l[n]){
+                if(!un.contains(k[m])){
+                    un.add(k[m]);
+                }
+                m++;
+            }
+            else{
+                if(!un.contains(l[n])){
+                    un.add(l[n]);
+                }
+                n++;
+            }
+        }
+        while(m<k.length){
+            if(!un.contains(k[m])){
+                un.add(k[m]);
+            }
+            m++;
+        }
+        while(n<l.length){
+            if(!un.contains(l[n])){
+                un.add(l[n]);
+            }
+            n++;
+        }
+        System.out.println(un);
+    }
+}
