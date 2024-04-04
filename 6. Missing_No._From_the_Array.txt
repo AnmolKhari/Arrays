@@ -1,10 +1,20 @@
-public class Start6_4 {
-    public static void main(String[] args) {
-        int []k={1, 2, 3, 5};
-        for(int l=0; l<k.length-1; l++){
-            if(k[l+1]!=k[l]+1){
-                System.out.println(k[l]+1);
+import java.util.*;
+public class Main {
+    public static void main(String[] args){
+        int []k={3, 0, 1};
+        Main c_obj=new Main();
+        System.out.println(c_obj.missingNumber(k));
+    }
+    public int missingNumber(int[] k) {
+        int []m=new int[k.length+1];
+        for(int l=0; l<k.length; l++){
+            m[k[l]]=1;
+        }
+        for(int l=0; l<m.length; l++){
+            if(m[l]==0){
+                return l;
             }
         }
+        return 1;
     }
 }
