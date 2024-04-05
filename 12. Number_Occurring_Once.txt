@@ -1,0 +1,21 @@
+public class Start13_1 {
+    public static void main(String[] args) {
+        int []k={1, 1, 2, 3, 3, 4, 4, 4};
+        int l=0, m=0, n=0;
+        while(l<k.length && m<k.length){
+            if(k[l]==k[m] && l!=m){
+                l++;
+                m=0;
+            }
+            else if(k[l]!=k[m]){
+                m++;
+            }
+            if(m==k.length){
+                System.out.println(k[l]);
+            }
+            if(l==m){
+                m++;
+            }
+        }
+    }
+}
