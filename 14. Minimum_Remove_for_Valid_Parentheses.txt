@@ -1,0 +1,53 @@
+import java.util.*;
+class Solution {
+    public static void main(String[] args){
+        String k="leet(c)o)(de)";
+        System.out.println(minRemoveToMakeValid(k));
+    }
+    public static String minRemoveToMakeValid(String k) {
+        char []ch=k.toCharArray();
+        Stack<Character> l=new Stack<>();
+        ArrayList<Integer> m=new ArrayList<>();
+        for(int n=0; n<k.length(); n++){
+            if(k.charAt(n)=='('){
+                l.push('(');
+            }
+            else if(k.charAt(n)==')'){
+                if(l.isEmpty() || l.pop()!='('){
+                    m.add(n);
+                }
+            }
+        }
+        int ttt=0;
+        int t=ch.length-1;
+        if(!l.isEmpty()){
+            while(ttt<l.size()){
+                if(ch[t]=='('){
+                    ttt++;
+                    m.add(t);
+                    t--;
+                }
+                else{
+                    t--;
+                }
+            }
+        }
+        Collections.sort(m);
+        ArrayList<Character> rem=new ArrayList<>();
+        int removepointer=0;
+        for(int n=0; n<ch.length; n++){
+            if(removepointer<m.size() && n==m.get(removepointer)){
+                removepointer++;
+            }
+            else{
+                rem.add(ch[n]);
+            }
+        }
+        StringBuilder out=new StringBuilder();
+        for(Character res:rem){
+            out.append(res);
+        }
+        String result=out.toString();
+        return (result);
+    }
+}
