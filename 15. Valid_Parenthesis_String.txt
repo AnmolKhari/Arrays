@@ -1,0 +1,38 @@
+import java.util.*;
+public class Start12_3{
+    public static void main(String[] args){
+        String k="(*))"
+        System.out.println(checkValidString(k));
+    }
+    public static boolean checkValidString(String k) {
+        Stack<Integer> l_Parent=new Stack<>();
+        Stack<Integer> aster=new Stack<>();
+        for(int l=0; l<k.length(); l++){
+            if(k.charAt(l)=='('){
+                l_Parent.push(l);
+            }
+            else if(k.charAt(l)=='*'){
+                aster.push(l);
+            }
+            else if(k.charAt(l)==')'){
+                if(!l_Parent.isEmpty()){
+                    l_Parent.pop();
+                }
+                else if(!aster.isEmpty()){
+                    aster.pop();
+                }
+                else{
+                    return (false);
+                }
+            }
+        }
+        while(!l_Parent.isEmpty()){
+            if(aster.isEmpty() || l_Parent.peek()>aster.peek()){
+                return (false);
+            }
+            l_Parent.pop();
+            aster.pop();
+        }
+        return (true);
+    }
+}
