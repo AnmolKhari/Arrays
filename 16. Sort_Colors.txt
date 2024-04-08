@@ -1,0 +1,17 @@
+public class Prac1 {
+    public static void main(String[] args) {
+        int []nums={2,0,2,1,1,0};
+        sortColors(nums);
+    }
+    public static void sortColors(int[] nums) {
+        for(int l=0; l<nums.length; l++){
+            for(int m=l+1; m<nums.length; m++){
+                if(nums[l]>nums[m]){
+                    nums[l]=nums[l]+nums[m];
+                    nums[m]=nums[l]-nums[m];
+                    nums[l]=nums[l]-nums[m];
+                }
+            }
+        }
+    }
+}
