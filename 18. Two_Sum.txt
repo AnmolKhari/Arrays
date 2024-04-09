@@ -1,0 +1,27 @@
+import java.util.*;
+public class Start18_1 {
+    public static void main(String[] args) {
+        int []k={10, 4, 3};
+        int target=10;
+        int l=0, m=0;
+        int []result=new int[0];
+        HashMap<Integer, Integer> map=new HashMap<>();
+        while(l<k.length){
+            if(!map.containsKey(target-k[l])){
+                map.put(k[l], l);
+                l++;
+            }
+            else{
+                if(l==m){
+                    result=new int[]{l};
+                    break;
+                }
+                else{
+                    result=new int[]{l, map.get(target-k[l])};
+                    break;
+                }
+            }
+        }
+        System.out.println(Arrays.toString(result));
+    }
+}
