@@ -1,0 +1,28 @@
+import java.util.*;
+public class Start16_3 {
+    public static void main(String[] args) {
+        int []k={-1, -1, 1};
+        int sum=0, len=0, m=0;
+        HashMap<Integer, Integer> map=new HashMap<>();
+        int inp=0;
+        int re=0;
+        for(int l=0; l<k.length; l++){
+            sum+=k[l];
+            if (!map.containsKey(sum)) {
+                map.put(sum, l);
+            }
+            if(sum==inp){
+                if(len<l+1){
+                    len=l+1;
+                }
+            }
+            int ind=sum-inp;
+            if(map.containsKey(ind)){
+                if(len<(l-map.get(ind))){
+                    len=(l-map.get(ind));
+                }
+            }
+        }
+        System.out.println(len);
+    }
+}
