@@ -1,0 +1,28 @@
+// Majority Element
+import java.util.*;
+public class Start31_1 {
+    public static void main(String[] args){
+        Scanner obj=new Scanner(System.in);
+        Start31_1 c_obj=new Start31_1();
+        int len=obj.nextInt();
+        int []nums=new int[len];
+        for(int k=0; k<len; k++){
+            nums[k]=obj.nextInt();
+        }
+        System.out.println(c_obj.majorityElement(nums));
+    }
+    public int majorityElement(int[] nums) {
+        HashMap<Integer, Integer> k=new HashMap<Integer, Integer>();
+        for(int l=0; l<nums.length; l++){
+            int m=k.getOrDefault(nums[l], 0);
+            k.put(nums[l], m+1);
+        }
+        System.out.println(k);
+        for(int l=0; l<nums.length; l++){
+            if(k.get(nums[l])>(nums.length/2)){
+                return nums[l];
+            }
+        }
+        return -1;
+    }
+}
